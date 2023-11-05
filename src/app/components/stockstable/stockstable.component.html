@@ -1,0 +1,61 @@
+<p-table #dt1 [value]="stocks" dataKey="name"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [paginator]="true" [rows]="3"
+    styleClass="p-datatable-striped p-datatable-sm" [tableStyle]="{ 'min-width': '2rem' }">
+    <ng-template pTemplate="caption">
+        <div class="flex align-items-center justify-content-between">
+            Portfolio
+            <p-button icon="pi pi-plus" [rounded]="true" [text]="true" label="Add Stock"></p-button>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon></th>
+            <th pSortableColumn="variance">Variance<p-sortIcon field="variance"></p-sortIcon></th>
+            <th pSortableColumn="exreturn">Expected Return<p-sortIcon field="exreturn"></p-sortIcon></th>
+            <th style="width:auto"></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-stock let-ri="rowIndex">
+        <tr [pEditableRow]="stock">
+            <td>{{stock.name}}</td>
+            <td>{{stock.variance}}</td>
+            <td>{{stock.exreturn}}</td>
+            <td>
+                <div class="flex align-items-center justify-content-center gap-0">
+                    <button pButton type="button" icon="pi pi-pencil" (click)="onRowEditInit(stock, ri)"
+                        class="p-button-rounded p-button-text"></button><button pButton type="button"
+                        icon="pi pi-eraser" (click)="onRowRemove(stock,ri)"
+                        class="p-button-rounded p-button-text"></button>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog header="Edit Stock" [(visible)]="editing" [modal]="true" [breakpoints]="{ '960px': '90vw' }" [draggable]="false"
+    [style]="{width: '50vw'}">
+
+    <form [formGroup]="form">
+
+
+    <div class="p-inputgroup m-2">
+        <span class="p-inputgroup-addon">Name</span>
+        <input formControlName="name" type="text" pInputText placeholder="Name"/>
+    </div>
+
+    <div class="p-inputgroup m-2">
+        <span class="p-inputgroup-addon">Variance</span>
+        <input formControlName="variance" type="number" pInputText placeholder="Variance"/>
+    </div>
+
+    <div class="p-inputgroup m-2">
+        <span class="p-inputgroup-addon">Expected Return</span>
+        <input formControlName="exreturn" type="number" pInputText placeholder="Expected Return"/>
+    </div>
+
+
+    <p-button class="flex justify-content-end p-2" (click)="saveEdit()">Save</p-button>
+
+</form>
+
+</p-dialog>
