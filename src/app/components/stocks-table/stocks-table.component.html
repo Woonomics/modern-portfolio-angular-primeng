@@ -4,14 +4,16 @@
          [tableStyle]="{ 'min-width': '2rem' }"
          [value]="(stocks$ | async) ?? []"
          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-         dataKey="name"
+         dataKey="id"
+         paginatorDropdownAppendTo="body"
          styleClass="p-datatable-striped p-datatable-sm">
   <ng-template pTemplate="caption">
     <div class="flex align-items-center justify-content-between">
       Portfolio
-      <p-button [rounded]="true"
+      <p-button (onClick)="onAddNewStock()"
+                [rounded]="true"
                 [text]="true"
-                icon="pi pi-plus" (onClick)="onAddNewStock()"
+                icon="pi pi-plus"
                 label="Add Stock"/>
     </div>
   </ng-template>
