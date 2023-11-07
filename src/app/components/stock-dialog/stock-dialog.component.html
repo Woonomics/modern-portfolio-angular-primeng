@@ -1,0 +1,33 @@
+<div class="grid formgrid p-fluid">
+  <div class="col-12 md:col-6 lg:col-4 field">
+    <label for="name">Name</label>
+    <input [formControl]="form.controls.name"
+           id="name"
+           pInputText
+           placeholder="Insert Name"
+           type="text"/>
+  </div>
+  <div class="col-12 md:col-6 lg:col-4 field">
+    <label for="variance">Variance</label>
+    <input [formControl]="form.controls.variance"
+           id="variance"
+           pInputText
+           placeholder="Insert Variance"/>
+  </div>
+  <div class="col-12 md:col-6 lg:col-4 field">
+    <label for="expectedReturn">Expected Return</label>
+    <input [formControl]="form.controls.expectedReturn"
+           id="expectedReturn"
+           pInputText
+           placeholder="Insert Expected Return"/>
+  </div>
+</div>
+<div class="flex justify-content-end align-items-center">
+  <p-button (click)="onCloseClick()"
+            [outlined]="true"
+            label="Close"
+            styleClass="mx-1"/>
+  <p-button (click)="onSaveClick()"
+            [disabled]="form.invalid"
+            label="Save"/>
+</div>
