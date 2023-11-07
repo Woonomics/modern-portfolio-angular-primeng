@@ -1,7 +1,6 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {ConfirmationService, Message, MessageService} from 'primeng/api';
 import {TableModule} from 'primeng/table';
-import {StockService} from 'src/app/services/stock.service';
 import {StockDataService} from 'src/app/services/stock-data.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {DialogModule} from 'primeng/dialog';
@@ -16,7 +15,6 @@ import {StockModel} from '../../models/stock.model';
 @Component({
   selector: 'stocks-table',
   templateUrl: './stocks-table.component.html',
-  providers: [StockService, MessageService],
   imports: [
     DialogModule,
     ReactiveFormsModule,
