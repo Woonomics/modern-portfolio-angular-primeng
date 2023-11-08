@@ -1,44 +1,35 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-
-import { SliderModule } from 'primeng/slider';
-import { ButtonModule } from 'primeng/button';
-import { TableModule } from 'primeng/table';
-import { ToolbarModule } from 'primeng/toolbar';
-import { ChartModule } from 'primeng/chart';
-import { InputTextModule } from 'primeng/inputtext';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ToastModule } from 'primeng/toast';
-import { DialogModule } from 'primeng/dialog';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { InputNumberModule } from 'primeng/inputnumber';
-
-
-import { PortfoliochartComponent } from './components/portfoliochart/portfoliochart.component';
-import { HeadertoolbarComponent } from './components/headertoolbar/headertoolbar.component';
-import { SettingsComponent } from './components/settings/settings.component';
-import { RatesliderComponent } from './components/rateslider/rateslider.component';
-import { StockstableComponent } from './components/stockstable/stockstable.component';
-import { StockJsonPrintComponent } from './components/stock-json-print/stock-json-print.component';
-
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {ButtonModule} from 'primeng/button';
+import {TableModule} from 'primeng/table';
+import {ChartModule} from 'primeng/chart';
+import {ToolbarModule} from 'primeng/toolbar';
+import {SliderModule} from 'primeng/slider';
+import {InputTextModule} from 'primeng/inputtext';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ToastModule} from 'primeng/toast';
+import {DialogModule} from 'primeng/dialog';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {PortfolioChartComponent} from './components/portfolio-chart/portfolio-chart.component';
+import {HeaderToolbarComponent} from './components/header-toolbar/header-toolbar.component';
+import {RateSliderComponent} from './components/rates-lider/rate-slider.component';
+import {StocksTableComponent} from './components/stocks-table/stocks-table.component';
+import {DialogService} from 'primeng/dynamicdialog';
+import {HttpClientModule} from '@angular/common/http';
+import {ConfirmationService, MessageService} from 'primeng/api';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    StockstableComponent,
-    PortfoliochartComponent, 
-    HeadertoolbarComponent, 
-    SettingsComponent,
-    RatesliderComponent,
-    StockJsonPrintComponent
-  
+    AppComponent
   ],
   imports: [
-    BrowserModule, 
-    ButtonModule, 
-    TableModule, 
-    ChartModule, 
+    BrowserModule,
+    ButtonModule,
+    TableModule,
+    ChartModule,
     ToolbarModule,
     SliderModule,
     InputTextModule,
@@ -47,10 +38,16 @@ import { StockJsonPrintComponent } from './components/stock-json-print/stock-jso
     DialogModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    InputNumberModule
-    
+    InputNumberModule,
+    StocksTableComponent,
+    PortfolioChartComponent,
+    HeaderToolbarComponent,
+    RateSliderComponent,
+    HttpClientModule,
+    ConfirmDialogModule
   ],
-  providers: [],
+  providers: [DialogService, ConfirmationService, MessageService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

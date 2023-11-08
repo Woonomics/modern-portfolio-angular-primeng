@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "AAPL",
+    "variance": 2,
+    "expectedReturn": 5
+  },
+  {
+    "id": 2,
+    "name": "GOOG",
+    "variance": 2,
+    "expectedReturn": 7
+  },
+  {
+    "id": 3,
+    "name": "GOOG2",
+    "variance": 7,
+    "expectedReturn": 8
+  },
+  {
+    "id": 4,
+    "name": "GOOG3",
+    "variance": 5,
+    "expectedReturn": 9
+  },
+  {
+    "id": 5,
+    "name": "GOOG5",
+    "variance": 4,
+    "expectedReturn": 43
+  }
+]
